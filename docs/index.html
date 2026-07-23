@@ -1,0 +1,192 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gadget On Gaming — Weekly Performance Report</title>
+<style>
+:root{--bg:#0d1017;--card:#161b26;--card2:#1d2431;--ink:#e6edf3;--mut:#8b98a9;--line:#262e3d;--good:#3fb950;--bad:#f0883e;--acc:#58a6ff;--accd:#1f6feb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:30px;margin:0 0 4px;letter-spacing:-.5px}
+h2{font-size:21px;margin:44px 0 14px;letter-spacing:-.3px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.sub{color:var(--mut);font-size:14px}
+.updated{display:inline-block;margin-top:10px;font-size:13px;color:var(--acc);background:rgba(88,166,255,.1);border:1px solid rgba(88,166,255,.25);padding:5px 11px;border-radius:20px}
+.snap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.stat .n{font-size:26px;font-weight:700;letter-spacing:-.5px}
+.stat .l{color:var(--mut);font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14.5px;color:#cbd5e1}
+.cand{display:grid;grid-template-columns:200px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.cthumb img{width:200px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block}
+.cthumb{display:block}
+.ctitle{font-size:17px;font-weight:650;margin-bottom:8px;line-height:1.3}
+.cstats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.cstats span{font-size:12.5px;background:var(--card2);border:1px solid var(--line);padding:3px 9px;border-radius:6px;color:var(--mut)}
+.cstats .hl{color:var(--bad);border-color:rgba(240,136,62,.4);background:rgba(240,136,62,.08);font-weight:600}
+.clabel{font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--acc);margin:12px 0 5px;font-weight:600}
+.cwhy,.cthumbnote{margin:0;font-size:14px;color:#c9d4e0}
+.calts{margin:0;padding-left:0;list-style:none}
+.calts li{font-size:14.5px;padding:6px 12px;background:var(--card2);border:1px solid var(--line);border-radius:7px;margin-bottom:6px;font-weight:550}
+.calts li:before{content:"“";color:var(--mut)} .calts li:after{content:"”";color:var(--mut)}
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:10px 0 4px}
+.tcard{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;border-top:3px solid var(--line)}
+.tcard.good{border-top-color:var(--good)} .tcard.bad{border-top-color:var(--bad)}
+.tcard img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0a0d13}
+.tmeta{padding:8px 10px} .tt{display:block;font-size:12.5px;font-weight:600;line-height:1.3}
+.tn{display:block;font-size:11.5px;color:var(--mut);margin-top:3px}
+.striplabel{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-top:18px}
+.dot{width:10px;height:10px;border-radius:50%} .dot.good{background:var(--good)} .dot.bad{background:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td.win{color:var(--good)} td.lose{color:var(--bad)}
+.act{counter-reset:a;list-style:none;padding:0}
+.act li{counter-increment:a;position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 60px;margin-bottom:12px}
+.act li:before{content:counter(a);position:absolute;left:16px;top:14px;width:30px;height:30px;background:var(--accd);color:#fff;border-radius:8px;display:grid;place-items:center;font-weight:700}
+.act b{font-size:15.5px} .act p{margin:5px 0 0;font-size:14px;color:#c4cfdb}
+.pri{font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:5px;margin-left:8px;vertical-align:middle}
+.pri.p1{background:rgba(240,136,62,.15);color:var(--bad);border:1px solid rgba(240,136,62,.35)}
+.pri.p2{background:rgba(88,166,255,.12);color:var(--acc);border:1px solid rgba(88,166,255,.3)}
+.caveat{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:18px 20px;margin-top:26px;font-size:13.5px;color:var(--mut)}
+.caveat b{color:var(--ink)}
+a.acc{color:var(--acc)}
+@media(max-width:820px){.snap{grid-template-columns:repeat(2,1fr)}.strip{grid-template-columns:repeat(2,1fr)}.cand{grid-template-columns:1fr}.cthumb img{width:100%}}
+</style>
+<div class="wrap">
+  <h1>Gadget On Gaming — Weekly Performance Report</h1>
+  <div class="sub">Long-form video essays, reviews &amp; discussions on video games · channel analysis from public YouTube signals</div>
+  <div class="updated">Last updated: 2026-07-23T19:46:56Z</div>
+
+  <h2>1 · Channel snapshot</h2>
+  <div class="snap">
+    <div class="stat"><div class="n">8,790</div><div class="l">Subscribers</div></div>
+    <div class="stat"><div class="n">579.9K</div><div class="l">Total views</div></div>
+    <div class="stat"><div class="n">32</div><div class="l">Videos</div></div>
+    <div class="stat"><div class="n">10.9</div><div class="l">Median essay views/day</div></div>
+  </div>
+  <div class="note"><b>The trend:</b> The channel just had its first breakout — <b>“Killing Nazis Isn’t Woke”</b> has pulled <b>450,693 views</b>, which is <b>78% of every view the channel has ever earned</b>. That is fantastic and terrible at once: reach now rests on a single video, while a back catalogue of genuinely well-liked essays sits undiscovered. Recent 2026 essays average far higher views/day than the pre-2026 median (4.5/day), so the packaging has improved — the opportunity is to retro-fit that newer instinct onto the older library and convert breakout traffic into catalogue views.</div>
+
+  <h2>2 · Older videos to refresh first</h2>
+  <div class="sub" style="margin-bottom:12px">Older essays (~2–23 months old) with strong like/comment ratios but weak views/day — the signature of good content with a discovery/click problem, not a quality problem. Ranked by opportunity.</div>
+  <div class="cand">
+      <a class="cthumb" href="https://youtu.be/GtXtr7HleTw" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/GtXtr7HleTw/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">Armored Core VI: Fires of Rubicon - One Year Later... | A Video Essay #armoredcore6 #videogames</div>
+        <div class="cstats"><span>1,302 views</span><span>121 likes</span><span>21 comments</span><span class="hl">1.9 views/day</span><span>~23 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">A 118-minute labour of love with a <b>9.3% like-to-view ratio</b> (top-3 on the channel) but only 1,302 views in ~23 months — 1.9 views/day. The audience that finds it adores it; almost nobody finds it. The title buries the hook behind a dry “One Year Later…” retrospective frame.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>Armored Core VI Is the Best Game FromSoftware Ever Made</li><li>Everyone Moved On From Armored Core VI. They Were Wrong.</li><li>Armored Core VI Fixed FromSoftware’s Biggest Problem</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">Lead with one high-contrast mech silhouette against a dark/neon background and a 3-word overlay (“STILL THE BEST”). The current retrospective framing likely reads as an anniversary clip, not an argument — make the thumbnail state a claim, matching the rewritten title.</p>
+      </div></div>
+<div class="cand">
+      <a class="cthumb" href="https://youtu.be/u32rYV8DfuU" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/u32rYV8DfuU/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">Zen &amp; The Art Of Deep Space Mining || EVE Online || A Video Essay #eveonline</div>
+        <div class="cstats"><span>519 views</span><span>49 likes</span><span>16 comments</span><span class="hl">0.8 views/day</span><span>~22 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">Highest like-ratio on the entire channel at <b>9.4%</b>, yet just 519 views (0.8/day). The poetic “Zen &amp; The Art Of…” title is beautiful but tells a browsing viewer nothing and hides that this is about EVE Online’s emotional core.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>EVE Online Is the Loneliest Game Ever Made</li><li>I Spent Hours Mining in EVE Online. It Broke Me.</li><li>Why EVE Online’s Most Boring Job Is Secretly Its Best</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">A single tiny ship dwarfed by empty black space + 2-word overlay (“SO ALONE”) to sell the emotional angle. Poetic thumbnails under-perform on this channel; the emotional-claim thumbnails (Silent Hill 2, TLOU2) win.</p>
+      </div></div>
+<div class="cand">
+      <a class="cthumb" href="https://youtu.be/kFptVhHEYPY" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/kFptVhHEYPY/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">Cyberpunk 2077’s Second Life | Phantom Liberty &amp; the Path to Redemption</div>
+        <div class="cstats"><span>3,463 views</span><span>200 likes</span><span>35 comments</span><span class="hl">11.1 views/day</span><span>~10 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">A 79-minute Phantom Liberty essay with 200 likes / 35 comments — healthy engagement (5.8% like-ratio) — but 3,463 views is low for a AAA subject that should out-draw niche picks. Peer essays on smaller games out-perform it, pointing to a packaging (title/thumbnail) problem, not a content one.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>Phantom Liberty Is the Redemption Cyberpunk 2077 Deserved</li><li>Cyberpunk 2077 Died. Phantom Liberty Brought It Back.</li><li>The Expansion That Finally Fixed Cyberpunk 2077</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">Split-frame before/after (glitchy 2020 launch vs. neon Dogtown) with a hard “FIXED?” overlay. “Second Life | Phantom Liberty &amp; the…” is soft and clause-heavy; the thumbnail should carry the redemption tension the title now names.</p>
+      </div></div>
+<div class="cand">
+      <a class="cthumb" href="https://youtu.be/TUGBXwYNgjU" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/TUGBXwYNgjU/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">Silent Hill F Isn’t Silent Hill 2 — And That’s a Good Thing || Intermission 03</div>
+        <div class="cstats"><span>781 views</span><span>68 likes</span><span>15 comments</span><span class="hl">2.7 views/day</span><span>~9 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">Already uses the channel’s winning contrarian format and earns an <b>8.7% like-ratio</b>, but only 781 views (2.7/day) on a timely Silent Hill F subject. The essay works; discovery is the gap — a sharper thumbnail and pinned-comment cross-linking from the viral back-catalogue should lift it.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>Stop Comparing Silent Hill F to Silent Hill 2</li><li>Silent Hill F Is Brave Enough to Not Be Silent Hill 2</li><li>Silent Hill F Doesn’t Want to Be Silent Hill 2 (Good)</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">Face-forward Silent Hill F key art with a red “NOT SH2” stamp. Keep the SH-branding palette consistent with the 32k-view Silent Hill 2 essay so the two read as a series and cross-recommend.</p>
+      </div></div>
+<div class="cand">
+      <a class="cthumb" href="https://youtu.be/OREATDoIZqw" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/OREATDoIZqw/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">The Games I Loved In 2024 || #videoessay #goty #goty2024 #videogames #gameawards</div>
+        <div class="cstats"><span>224 views</span><span>23 likes</span><span>7 comments</span><span class="hl">0.4 views/day</span><span>~19 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">The single highest like-ratio on the channel (<b>10.3%</b>) and the single lowest views (224, 0.4/day). A generic “The Games I Loved In 2024” listicle title plus a wall of #hashtags in the title itself. Great taste, zero hook.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>The 2024 Games Everyone Slept On</li><li>Five 2024 Games Better Than the Ones You Played</li><li>The Best 2024 Games Nobody Talked About</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">A 2×2 grid of the four best-looking games with one big number “5”. Strip every #hashtag out of the visible title. List thumbnails need a number and recognisable box-art, not a text paragraph.</p>
+      </div></div>
+<div class="cand">
+      <a class="cthumb" href="https://youtu.be/mTgG1hJZNBM" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/mTgG1hJZNBM/hqdefault.jpg" alt=""></a>
+      <div class="cbody">
+        <div class="ctitle">From Sci-Fi to Horror: Three Isolated Demos || Intermission 01</div>
+        <div class="cstats"><span>292 views</span><span>12 likes</span><span>8 comments</span><span class="hl">0.8 views/day</span><span>~12 mo old</span></div>
+        <div class="clabel">Why flagged</div><p class="cwhy">292 views (0.8/day) on a 20-minute piece. “From Sci-Fi to Horror: Three Isolated Demos” is abstract and gives no reason to click — the word “demos” actively lowers perceived value.</p>
+        <div class="clabel">Rewritten title — pick one &amp; A/B</div><ul class="calts"><li>Three Demos That Scared Me More Than Full Games</li><li>The Best Horror of the Year Was Hiding in Three Demos</li><li>These Free Demos Are Scarier Than Most Full Games</li></ul>
+        <div class="clabel">Thumbnail change</div><p class="cthumbnote">The most unsettling single frame from the scariest of the three demos + “SCARIER THAN THE REAL THING”. Lead with fear, not a category label.</p>
+      </div></div>
+
+  <h2>3 · Title patterns that correlate with more views/day</h2>
+  <div class="note">On this channel the pattern is unusually clean: <b>titles that make a claim or stake an emotion out-perform titles that describe or catalogue.</b> The channel’s own timeline proves it — the assertive “claim” format that its recent hits use is exactly what the underperforming back-catalogue lacks.</div>
+  <table>
+    <tr><th>Works — claim / emotional stake</th><th>views/day</th><th>Underperforms — descriptive / poetic</th><th>views/day</th></tr>
+    <tr><td class="win">Killing Nazis Isn’t Woke</td><td class="win">3,885</td><td class="lose">The Games I Loved In 2024</td><td class="lose">0.4</td></tr>
+    <tr><td class="win">The Best Game I Ever Hated – TLOU2</td><td class="win">86</td><td class="lose">Zen &amp; The Art Of Deep Space Mining</td><td class="lose">0.8</td></tr>
+    <tr><td class="win">The Guilt of James Sunderland</td><td class="win">71</td><td class="lose">From Sci-Fi to Horror: Three… Demos</td><td class="lose">0.8</td></tr>
+    <tr><td class="win">Metal Eden Is a Banger and You’re Sleeping On It</td><td class="win">30</td><td class="lose">A Quick Look At Wuchang…</td><td class="lose">1.8</td></tr>
+    <tr><td class="win">The Dad Game That Replaced Trauma With Tenderness</td><td class="win">17</td><td class="lose">Armored Core VI… One Year Later</td><td class="lose">1.9</td></tr>
+  </table>
+  <div class="note" style="border-left-color:var(--good)"><b>What to copy:</b> (1) <b>Lead with a claim or verdict</b> (“Is the Best…”, “Isn’t…”, “You’re Sleeping On It”), not a topic. (2) <b>Put a person or emotion first</b> (“The Guilt of…”, “Trauma With Tenderness”) rather than the game’s name. (3) <b>Kill the fillers</b> — “A Quick Look”, “One Year Later”, “Demos”, poetic “Zen &amp; The Art Of”, and stuffed #hashtags all read as low-value. (4) Length isn’t the lever here (winners and losers both average ~75 chars) — <b>the presence of a stated argument is.</b></div>
+
+  <h2>4 · Thumbnail patterns — top performers vs. underperformers</h2>
+  <div class="striplabel"><span class="dot good"></span> Top performers</div>
+  <div class="strip"><a class="tcard good" href="https://youtu.be/7A9cQ86pQXM" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/7A9cQ86pQXM/hqdefault.jpg" alt="Killing Nazis Isn&#x27;t Woke — The History and Politics of the Wolfenstein Trilogy">
+      <div class="tmeta"><span class="tt">Killing Nazis Isn&#x27;t Woke — The History and Politics of the W…</span>
+      <span class="tn">450,693 views · 3885.3/day</span></div></a>
+<a class="tcard good" href="https://youtu.be/Wb0nMaO5La0" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/Wb0nMaO5La0/hqdefault.jpg" alt="The Best Game I Ever Hated - The Last of Us Part II Critique">
+      <div class="tmeta"><span class="tt">The Best Game I Ever Hated - The Last of Us Part II Critique</span>
+      <span class="tn">35,490 views · 86.4/day</span></div></a>
+<a class="tcard good" href="https://youtu.be/wT8qpvRVYrk" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/wT8qpvRVYrk/hqdefault.jpg" alt="The Guilt of James Sunderland || A Silent Hill 2 Remake Retrospective #SilentHill2 #Essay #lore">
+      <div class="tmeta"><span class="tt">The Guilt of James Sunderland || A Silent Hill 2 Remake Retr…</span>
+      <span class="tn">32,031 views · 70.9/day</span></div></a>
+<a class="tcard good" href="https://youtu.be/WwT6U3lfi-k" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/WwT6U3lfi-k/hqdefault.jpg" alt="Nine Sols: A Complete Story &amp; Lore Retrospective || A Video Essay #NineSols #Essay #lore">
+      <div class="tmeta"><span class="tt">Nine Sols: A Complete Story &amp; Lore Retrospective || A Video …</span>
+      <span class="tn">24,014 views · 47.2/day</span></div></a>
+<a class="tcard good" href="https://youtu.be/W8Mp8iQoFBM" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/W8Mp8iQoFBM/hqdefault.jpg" alt="The Corporation Is the Monster - Alien: Isolation&#x27;s Real Horror">
+      <div class="tmeta"><span class="tt">The Corporation Is the Monster - Alien: Isolation&#x27;s Real Hor…</span>
+      <span class="tn">3,359 views · 167.9/day</span></div></a></div>
+  <div class="striplabel"><span class="dot bad"></span> Underperformers (refresh targets)</div>
+  <div class="strip"><a class="tcard bad" href="https://youtu.be/GtXtr7HleTw" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/GtXtr7HleTw/hqdefault.jpg" alt="Armored Core VI: Fires of Rubicon - One Year Later... | A Video Essay #armoredcore6 #videogames">
+      <div class="tmeta"><span class="tt">Armored Core VI: Fires of Rubicon - One Year Later... | A Vi…</span>
+      <span class="tn">1,302 views · 1.9/day</span></div></a>
+<a class="tcard bad" href="https://youtu.be/TUGBXwYNgjU" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/TUGBXwYNgjU/hqdefault.jpg" alt="Silent Hill F Isn’t Silent Hill 2 — And That’s a Good Thing || Intermission 03">
+      <div class="tmeta"><span class="tt">Silent Hill F Isn’t Silent Hill 2 — And That’s a Good Thing …</span>
+      <span class="tn">781 views · 2.7/day</span></div></a>
+<a class="tcard bad" href="https://youtu.be/OREATDoIZqw" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/OREATDoIZqw/hqdefault.jpg" alt="The Games I Loved In 2024 || #videoessay #goty #goty2024 #videogames #gameawards">
+      <div class="tmeta"><span class="tt">The Games I Loved In 2024 || #videoessay #goty #goty2024 #vi…</span>
+      <span class="tn">224 views · 0.4/day</span></div></a>
+<a class="tcard bad" href="https://youtu.be/mTgG1hJZNBM" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/mTgG1hJZNBM/hqdefault.jpg" alt="From Sci-Fi to Horror: Three Isolated Demos || Intermission 01">
+      <div class="tmeta"><span class="tt">From Sci-Fi to Horror: Three Isolated Demos || Intermission …</span>
+      <span class="tn">292 views · 0.8/day</span></div></a>
+<a class="tcard bad" href="https://youtu.be/66gqv3iCFrg" target="_blank" rel="noopener">
+      <img loading="lazy" src="https://i.ytimg.com/vi/66gqv3iCFrg/hqdefault.jpg" alt="A Quick Look At Wuchang: Fallen Feathers | First Impressions &amp; Gameplay Breakdown">
+      <div class="tmeta"><span class="tt">A Quick Look At Wuchang: Fallen Feathers | First Impressions…</span>
+      <span class="tn">663 views · 1.8/day</span></div></a></div>
+  <div class="note" style="border-left-color:var(--bad)"><b>Read the two rows side by side.</b> The pattern to pursue on this channel: a <b>single dominant subject</b> (one face, one character, one machine) at high contrast, a <b>2–4 word</b> overlay that states the same claim as the title, and a <b>consistent per-series palette</b> so related essays cross-recommend (the Silent Hill 2 / Silent Hill F pair especially). Underperformers tend to be busier and more literal — game key-art with no stated point of view. Aim thumbnails at the emotion/argument, not the box art.
+  <br><br><b>Analyst caveat (this run):</b> the sandbox running this report could not download the thumbnail image files — this environment’s egress policy blocks YouTube’s image CDN (<code>i.ytimg.com</code>) with a 403. The images above are embedded live from YouTube so <em>you</em> can compare them directly in the browser, but the pixel-level critique here is inferred from title/format/metric patterns rather than my own visual inspection this week. With image-CDN access, next run will grade contrast, face-presence and text legibility per thumbnail.</div>
+
+  <h2>5 · This week’s action items</h2>
+  <ol class="act">
+    <li><b>Re-title + re-thumbnail the Armored Core VI essay<span class="pri p1">Priority 1</span></b><p>Highest opportunity on the channel: a 2-hour, 9.3%-like-ratio essay stuck at 1.9 views/day. Ship one of the claim-format titles above with a single-mech, high-contrast thumbnail. One change, biggest upside.</p></li>
+    <li><b>Harvest the breakout’s traffic into the catalogue<span class="pri p1">Priority 1</span></b><p>“Killing Nazis” is 78% of all channel views. Add end-screens + a pinned comment + a playlist on it that funnel to 3–4 back-catalogue essays (Silent Hill 2, TLOU2, Cyberpunk). Convert one-hit reach into durable discovery before the spike cools.</p></li>
+    <li><b>A/B the Silent Hill F essay’s thumbnail and cross-link it to the SH2 hit<span class="pri p2">Priority 2</span></b><p>8.7% like-ratio, timely subject, only 781 views. Match its branding to the 32K-view Silent Hill 2 essay so the two form a recommendable pair, and test a “Stop Comparing” title.</p></li>
+    <li><b>Strip hashtags from listicle titles &amp; renumber them<span class="pri p2">Priority 2</span></b><p>“The Games I Loved In 2024” (highest like-ratio, lowest views) and similar: remove the #hashtag wall from the visible title, lead with a number + a “slept on” claim, use a box-art grid thumbnail.</p></li>
+    <li><b>Lock the claim-title format as the default going forward<span class="pri p2">Priority 2</span></b><p>Every new essay title should contain a stated verdict or emotional stake before publish. It’s the single clearest signal in the data and it’s already working on the 2026 uploads.</p></li>
+  </ol>
+
+  <div class="caveat"><b>Method &amp; caveats.</b> This analysis uses <b>public YouTube Data API v3 signals only</b> — view count, likes, comments, title, description, tags, duration and publish date. It has <b>no access to CTR, impressions, traffic sources, or audience retention</b> (those require a YouTube Analytics OAuth connection to the channel). “Views per day since publish” is used to compare videos of different ages fairly, but it can’t separate a title/thumbnail (click) problem from a retention or seasonality one. Every driver claim here — especially the title and thumbnail hypotheses — is therefore an <b>informed hypothesis to A/B test, not a certainty.</b> Connecting YouTube Analytics OAuth would let a future report measure real CTR and retention per video and confirm which refreshes actually move the needle. Generated 2026-07-23T19:46:56Z from 32 public videos.</div>
+</div>
