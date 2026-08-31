@@ -1,4 +1,4 @@
-This run (2026-08-24): the sandbox that generates this report has no network
+This run (2026-08-31): the sandbox that generates this report has no network
 egress to YouTube's image CDNs. i.ytimg.com, img.youtube.com, i9.ytimg.com and
 yt3.ggpht.com all return HTTP 403 on CONNECT (blocked by this environment's
 egress policy), re-verified this run via the agent-proxy status endpoint
@@ -6,7 +6,7 @@ egress policy), re-verified this run via the agent-proxy status endpoint
 www.googleapis.com (the Data API) is reachable. Thumbnail image files therefore
 could NOT be downloaded to disk, so a fresh pixel-level inspection (contrast,
 face expression, text legibility) was not possible this run. This has been true
-on every run to date (2026-07-23 through 2026-08-24).
+on every run to date (2026-07-23 through 2026-08-31).
 
 Instead, docs/index.html embeds each thumbnail live from YouTube's CDN
 (https://i.ytimg.com/vi/<videoId>/hqdefault.jpg). Those URLs render normally in
