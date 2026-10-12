@@ -1,11 +1,11 @@
-Thumbnail images — why this folder holds no .jpg files (run 2026-10-05)
+Thumbnail images — why this folder holds no .jpg files (run 2026-10-12)
 ======================================================================
 
 The sandbox that generates this report has NO network egress to YouTube's
 image CDNs. i.ytimg.com and img.youtube.com both return HTTP 403 on CONNECT
 (blocked by this environment's egress policy), re-verified THIS run
-(connect_rejected / 403 for each host). Only www.googleapis.com (the YouTube
-Data API v3) is reachable.
+(CONNECT tunnel failed, response 403 for each host). Only www.googleapis.com
+(the YouTube Data API v3) is reachable.
 
 Consequence: thumbnail image files could NOT be downloaded to disk, so a fresh
 pixel-level inspection (contrast, face expression, text legibility, clutter)
@@ -24,13 +24,16 @@ menu in the session title bar -> Edit -> Network access -> Custom, add the host
 under Allowed domains (keep the default package-manager list).
 Docs: https://code.claude.com/docs/en/cloud-environments#network-access
 
-Data integrity (2026-10-05): the video ID -> title -> stats mapping was rebuilt
-directly from the live API this run (channel 9,440 subs / 683,541 views / 33
-videos; prior run 2026-09-28 was 9,420 / 678,309). Every video ID referenced in
+Data integrity (2026-10-12): the video ID -> title -> stats mapping was rebuilt
+directly from the live API this run (channel 9,450 subs / 688,503 views / 33
+videos; prior run 2026-10-05 was 9,440 / 683,541). Every video ID referenced in
 index.html was re-verified against this run's fetched titles/stats before writing.
 
-Confirmed this run: the "Dad Game That Replaced Trauma With Tenderness" essay
-(C7zyJ_MeMdA) is a Pragmata (Capcom) video — confirmed from its tags
-(Pragmata, Pragmata Capcom, Pragmata Hugh and Diana). Its title never names the
-game, forfeiting all "Pragmata" search traffic despite the channel's highest
-essay engagement rate (11.6%). It remains the #1 refresh candidate.
+This run's top refresh candidate remains the Pragmata essay (C7zyJ_MeMdA), titled
+"The Dad Game That Replaced Trauma With Tenderness" — tags confirm it is a
+Pragmata (Capcom) video, yet the game is never named in the title, forfeiting all
+Pragmata search/browse traffic despite the channel's highest essay engagement
+(11.5%). Channel-wide signal reconfirmed: titles containing "||" average 3.6
+views/day vs 10.0 for titles without one. Cadence note: only 1 upload in the last
+90 days (Sept 3 "Deep State" essay), which is itself the channel's 2nd-best
+views-per-day performer — momentum is there but cooling for want of new uploads.
